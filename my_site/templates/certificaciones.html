@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Federico Diaz | Certificaciones y Habilidades</title>
+
+    {% load static %}
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <style>
+      body {
+        background-color: #f4f7fc;
+        font-family: "Poppins", sans-serif;
+      }
+      .section-title {
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .certifications-section,
+      .skills-section {
+        padding: 80px 0;
+      }
+      .list-group-item {
+        background: white;
+        border-left: 5px solid #007bff;
+        font-weight: 500;
+      }
+      .progress {
+        height: 25px;
+        border-radius: 20px;
+        overflow: hidden;
+        background-color: #e9ecef;
+      }
+      .progress-bar {
+        font-weight: 600;
+        text-align: right;
+        padding-right: 10px;
+        border-radius: 20px;
+        width: 0%;
+        transition: width 2s ease-in-out;
+      }
+      .card {
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Federico Diaz</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">Acerca de Mí</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'proyectos' %}">Proyectos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'blog-list' %}">blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <!-- Certificaciones -->
+      <section class="certifications-section text-center" data-aos="fade-up">
+        <h2 class="section-title text-primary mb-4">Certificaciones</h2>
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="card p-4">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  Master en CSS: Responsive, SASS, Flexbox, Grid y Bootstrap -
+                  Udemy
+                </li>
+                <li class="list-group-item">
+                  Desarrollo Web Full Stack JS: HTML, CSS, Bootstrap, JS, Node -
+                  Udemy
+                </li>
+                <li class="list-group-item">
+                  Mastering SharePoint Framework (SPFX) Development - Udemy
+                </li>
+                <li class="list-group-item">
+                  Power Apps y Power Automate - Curso Completo - Udemy
+                </li>
+                <li class="list-group-item">
+                  Desarrollador Java - Educación IT
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Habilidades -->
+      <section class="skills-section" data-aos="fade-up">
+        <h2 class="section-title text-primary text-center mb-4">Habilidades</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <h5>Desarrollo Web</h5>
+            <div class="progress mb-3">
+              <div
+                class="progress-bar bg-primary"
+                role="progressbar"
+                data-width="90%"
+              >
+                90%
+              </div>
+            </div>
+            <h5>JavaScript y React</h5>
+            <div class="progress mb-3">
+              <div
+                class="progress-bar bg-success"
+                role="progressbar"
+                data-width="85%"
+              >
+                85%
+              </div>
+            </div>
+            <h5>SharePoint & Power Platform</h5>
+            <div class="progress mb-3">
+              <div
+                class="progress-bar bg-warning text-dark"
+                role="progressbar"
+                data-width="95%"
+              >
+                95%
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h5>Python & Django</h5>
+            <div class="progress mb-3">
+              <div
+                class="progress-bar bg-info"
+                role="progressbar"
+                data-width="80%"
+              >
+                80%
+              </div>
+            </div>
+            <h5>SQL & PL/SQL</h5>
+            <div class="progress mb-3">
+              <div
+                class="progress-bar bg-danger"
+                role="progressbar"
+                data-width="75%"
+              >
+                75%
+              </div>
+            </div>
+            <h5>Administración de Sistemas</h5>
+            <div class="progress mb-3">
+              <div
+                class="progress-bar bg-secondary"
+                role="progressbar"
+                data-width="85%"
+              >
+                85%
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Footer -->
+    <footer class="text-center mt-5 py-4 bg-light">
+      <p>&copy; 2025 Federico Diaz | Todos los derechos reservados</p>
+    </footer>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init();
+
+      // Animación de barras de progreso
+      document.addEventListener("DOMContentLoaded", function () {
+        let progressBars = document.querySelectorAll(".progress-bar");
+        progressBars.forEach((bar) => {
+          let width = bar.getAttribute("data-width");
+          bar.style.width = width;
+        });
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

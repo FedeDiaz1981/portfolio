@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Federico Diaz | Proyectos</title>
+
+    <!-- AOS CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+        .card {
+            transition: transform 0.3s ease-in-out;
+        }
+    
+        .card:hover {
+            transform: translateY(-5px);
+        }
+    
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+    
+        .card-body {
+            text-align: center;
+        }
+    </style>
+    
+
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Federico Diaz</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">Acerca de Mí</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'proyectos' %}">Proyectos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'blog-list' %}">blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+{% block content %}
+    <div class="container mt-5">
+        <h2 class="text-center mb-5" data-aos="fade-up">Mis Proyectos</h2>
+        <div class="row">
+            {% for proyecto in proyectos %}
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1500">
+                    <div class="card shadow-sm border-light rounded">
+                        <img src="{{ proyecto.imagen.url }}" class="card-img-top" alt="{{ proyecto.titulo }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ proyecto.titulo }}</h5>
+                            <p class="card-text">{{ proyecto.descripcion|truncatewords:20 }}</p>
+                            {% if proyecto.enlace %}
+                                <a href="{{ proyecto.enlace }}" class="btn btn-primary" target="_blank">Ver Proyecto</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="text-center mt-5 py-4 bg-light">
+      <p>&copy; 2025 Federico Diaz | Todos los derechos reservados</p>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- Inicializar AOS -->
+    <script>
+        AOS.init();
+    </script>
+{% endblock %}
+
+</body>
+</html>

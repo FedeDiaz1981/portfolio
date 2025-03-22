@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Federico Diaz | acerca de mí</title>
+    <!-- AOS CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    {% load static %} {% block content %}
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Federico Diaz</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">Acerca de Mí</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'proyectos' %}">Proyectos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'blog-list' %}">blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contacto' %}">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container my-5">
+      <div class="text-center mb-5">
+        <h1 class="fw-bold" data-aos="fade-up">Acerca de Mí</h1>
+        <p class="text-muted" data-aos="fade-up" data-aos-delay="100">
+          Descubre quién soy, mi experiencia y cómo puedo ayudarte a transformar
+          tus ideas en soluciones digitales innovadoras.
+        </p>
+      </div>
+
+      <div class="row align-items-center">
+        <!-- Imagen de Perfil -->
+        <div class="col-lg-5 mb-4" data-aos="fade-right">
+          <img
+            src="{% static 'images/foto_perfil.jpg' %}"
+            alt="Mi Foto"
+            class="img-fluid rounded-4 shadow-lg"
+          />
+        </div>
+
+        <!-- Descripción Personal -->
+        <div class="col-lg-7 text-center" data-aos="fade-left">
+          <h2 class="fw-semibold">¡Hola! Soy Federico Diaz</h2>
+          <p class="lead text-muted">
+            Soy Ingeniero en SharePoint y Desarrollador Full Stack con más de 10
+            años de experiencia en desarrollo web, automatización de procesos y
+            consultoría IT. Mi especialización abarca tecnologías como
+            SharePoint (on-premise/online), Power Platform, JavaScript, React,
+            C# y Python.
+          </p>
+          <p class="lead text-muted">
+            A lo largo de mi carrera, he liderado proyectos de transformación
+            digital, optimizando procesos y mejorando la eficiencia operativa en
+            entornos corporativos. Mi experiencia incluye la administración y
+            mantenimiento de sitios empresariales, el desarrollo de aplicaciones
+            personalizadas y la implementación de soluciones tecnológicas que
+            potencian la productividad y colaboración dentro de las
+            organizaciones.
+          </p>
+          <p class="lead text-muted">
+            Mi enfoque se basa en la innovación, la calidad del código y la
+            mejora continua, asegurando soluciones escalables y alineadas con
+            los objetivos del negocio:
+          </p>
+          <ul class="list-unstyled m-5">
+            <li class="my-4">
+              <i class="bi bi-check-circle text-primary"></i> 
+              <span class="h4">
+                Experiencia en desarrollo full stack
+              </span>
+            </li>
+            <li class="my-4">
+              <i class="bi bi-check-circle text-primary"></i> 
+              <span class="h4">
+                Diseño de interfaces responsivas
+              </span>
+            </li>
+            <li class="my-4">
+              <i class="bi bi-check-circle text-primary"></i> 
+              <span class="h4">
+                Optimización de rendimiento web
+              </span>
+            </li>
+          </ul>
+          <a
+            href="{% url 'contacto' %}"
+            class="btn btn-primary btn-lg mt-3"
+            data-aos="zoom-in"
+          >
+            Contáctame <i class="bi bi-envelope"></i>
+          </a>
+          <a
+            href="{% url 'certificaciones' %}"
+            class="btn btn-primary btn-lg mt-3"
+            data-aos="zoom-in"
+          >
+            Certificaciones <i class="bi bi-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Sección de Experiencia / Habilidades -->
+      <div class="row mt-5">
+        <div class="col-md-4 text-center" data-aos="flip-left">
+          <i class="bi bi-code-slash text-primary display-4"></i>
+          <h4 class="fw-bold mt-3">Desarrollo Web</h4>
+          <p class="text-muted">
+            Especialista en Django, React y optimización de rendimiento.
+          </p>
+        </div>
+        <div
+          class="col-md-4 text-center"
+          data-aos="flip-left"
+          data-aos-delay="100"
+        >
+          <i class="bi bi-brush text-success display-4"></i>
+          <h4 class="fw-bold mt-3">Diseño Moderno</h4>
+          <p class="text-muted">
+            Uso de Bootstrap y UX/UI para experiencias intuitivas.
+          </p>
+        </div>
+        <div
+          class="col-md-4 text-center"
+          data-aos="flip-left"
+          data-aos-delay="200"
+        >
+          <i class="bi bi-bar-chart-line text-warning display-4"></i>
+          <h4 class="fw-bold mt-3">Estrategia Digital</h4>
+          <p class="text-muted">
+            SEO, optimización y marketing para crecimiento sostenible.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="text-center mt-5 py-4 bg-light">
+      <p>&copy; 2025 Federico Diaz | Todos los derechos reservados</p>
+    </footer>
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+      AOS.init();
+    </script>
+    {% endblock %}
+  </body>
+</html>
