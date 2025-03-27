@@ -24,7 +24,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ESTO_VA_AQUÍ.settings')
 SECRET_KEY = 'django-insecure-13^#g1!m1#ewxm7)=)6qj00vm72=054ke$j&q4ja&ld2ip#!lc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['portfolio-kblg.onrender.com','127.0.0.1','FedeDiaz.pythonanywhere.com',]
 
@@ -61,7 +61,7 @@ ROOT_URLCONF = 'my_portfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'my_site', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -139,6 +139,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # o el servidor SMTP que uses
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'federicodiaz1981@gmail.com'
+EMAIL_HOST_PASSWORD = 'niik pbph yqfw zbfz'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

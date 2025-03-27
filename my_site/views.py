@@ -1,8 +1,10 @@
 from django.shortcuts import get_object_or_404, redirect, render
-from .forms import ContactForm
+from .forms import ContactoForm
 from rest_framework import generics
 from .models import Proyecto, Testimonio, Articulo, Crecimiento, BlogPost
 from .serializers import BlogPostSerializer
+
+from django.core.mail import send_mail
 
 
 def home(request):
@@ -19,17 +21,29 @@ def home(request):
 
 def contacto(request):
     if request.method == 'POST':
-        form = ContactForm(request.POST)
+        form = ContactoForm(request.POST)
         if form.is_valid():
-            # Aquí puedes agregar la lógica para enviar el mensaje, guardar en la base de datos, etc.
-            # Por ahora, solo mostramos un mensaje de éxito.
-            render(request, 'contacto.html', {'form': form, 'success': True})
-            return redirect('/')
-            
-    else:
-        form = ContactForm()
+            nombre = form.cleaned_data['nombre']
+            correo = form.cleaned_data['correo']
+            mensaje = form.cleaned_data['mensaje']
 
-    return render(request, 'contacto.html', {'form': form, 'success': False})
+            # construir el mensaje
+            asunto = f'Nuevo mensaje de contacto de {nombre}'
+            cuerpo = f'Nombre: {nombre}\nCorreo: {correo}\n\nMensaje:\n{mensaje}'
+
+            send_mail(
+                asunto,
+                cuerpo,
+                correo,  # from email
+                ['federicodiaz1981@gmail.com'],  # destinatario
+                fail_silently=False,
+            )
+
+            return redirect('/')
+    else:
+        form = ContactoForm()
+
+    return render(request, 'contacto.html', {'form': form})
 
 def proyectos(request):
     proyectos = Proyecto.objects.all()
