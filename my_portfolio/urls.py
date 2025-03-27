@@ -17,4 +17,5 @@ urlpatterns = [
     path('api/blog/', views.BlogPostListView.as_view(), name='blog-list'),
     path('blog/', views.blog_list, name='blog-list'),
     path('blog/<int:blog_id>/', views.blog_detail, name='blog-detail'),
+    path('proyecto/<int:proyecto_id>/', views.proyecto_detalle, name='proyecto-detalle'),
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

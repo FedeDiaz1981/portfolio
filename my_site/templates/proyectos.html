@@ -86,7 +86,8 @@
                         <img src="{{ proyecto.imagen.url }}" class="card-img-top" alt="{{ proyecto.titulo }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ proyecto.titulo }}</h5>
-                            <p class="card-text">{{ proyecto.descripcion|truncatewords:20 }}</p>
+                            <p class="card-text">{{ proyecto.descripcion|truncatewords:20|safe }}</p>
+                            <a href="{% url 'proyecto-detalle' proyecto.id %} " class="btn btn-primary">Ver más</a>
                             {% if proyecto.enlace %}
                                 <a href="{{ proyecto.enlace }}" class="btn btn-primary" target="_blank">Ver Proyecto</a>
                             {% endif %}

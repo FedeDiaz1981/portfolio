@@ -73,3 +73,7 @@ def blog_list(request):
 
 def about(request):
     return render(request, "about.html")
+
+def proyecto_detalle(request, proyecto_id):
+    proyecto = get_object_or_404(Proyecto, id=proyecto_id)
+    return render(request, 'proyecto_detalle.html', {'proyecto': proyecto})
